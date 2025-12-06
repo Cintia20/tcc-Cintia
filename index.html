@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologia do Projeto Lost Totem - TCC em Modelagem 3D</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .author-info {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .methodology-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+
+        .methodology-section:nth-child(even) {
+            border-left-color: #2ecc71;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+
+        .download-section {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #2ecc71;
+        }
+
+        .btn-secondary:hover {
+            background: #27ae60;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+
+        .phase-diagram {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        .phase-step {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .phase-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Metodologia do Projeto: Lost Totem</h1>
+        <p class="subtitle">Criação de personagens 3D para jogos: do conceito à modelagem no Blender.</p>
+        <div class="author-info">
+            <p><strong>Autor:</strong> Cintia Maier dos Santos</p>
+            <p><strong>Curso:</strong> Jogos Digitais</p>
+            <p><strong>Ano:</strong> 2025</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <section id="introducao">
+                <h2>Introdução à Metodologia</h2>
+                <p>Esta página apresenta a metodologia completa desenvolvida e aplicada no Trabalho de Conclusão de Curso intitulado "Lost Totem: Desenvolvimento de Personagem 3D Low Poly para Jogos Digitais". A metodologia foi estruturada em fases iterativas que permitiram o desenvolvimento progressivo do personagem "Guardião do Totem", desde sua concepção inicial até a implementação técnica em ambiente de demonstração interativa.</p>
+                
+                <div class="highlight">
+                    <p><strong>Objetivo Principal:</strong> Documentar e socializar o processo metodológico aplicado no desenvolvimento do personagem 3D, proporcionando transparência sobre as decisões técnicas, desafios enfrentados e soluções implementadas, servindo como referência para outros desenvolvedores e estudantes da área.</p>
+                </div>
+            </section>
+
+            <section id="abordagem-geral">
+                <h2>Abordagem Metodológica Geral</h2>
+                
+                <div class="methodology-section">
+                    <h3>1. Metodologia Iterativa e Incremental</h3>
+                    <p>A abordagem metodológica adotada fundamenta-se em um processo iterativo e incremental, caracterizado por ciclos de desenvolvimento que permitem refinamentos progressivos baseados em feedback contínuo e validação técnica em cada etapa do pipeline de produção. Esta estratégia foi selecionada por sua adequação a projetos de natureza técnica e artística, onde a flexibilidade para revisitar e ajustar decisões anteriores demonstrou-se mais eficiente que a aderência rígida a um plano inicialmente estabelecido.</p>
+                </div>
+
+                <div class="methodology-section">
+                    <h3>2. Integração entre Concepção Artística e Requisitos Técnicos</h3>
+                    <p>A metodologia foi estruturada para integrar harmoniosamente considerações artísticas e restrições técnicas desde as fases conceituais do desenvolvimento, estabelecendo um equilíbrio praticável entre expressividade visual e performance em tempo real. Esta integração intencional buscou superar a desconexão frequentemente observada entre práticas de modelagem para visualização estática e requisitos para aplicações interativas em game engines.</p>
+                </div>
+
+                <div class="phase-diagram">
+                    <h3>Fluxo de Fases da Metodologia</h3>
+                    <div class="phase-step">
+                        <div class="phase-number">1</div>
+                        <div>
+                            <strong>Concepção e Referência</strong>
+                            <p>Pesquisa de referências visuais e definição do conceito artístico</p>
+                        </div>
+                    </div>
+                    <div class="phase-step">
+                        <div class="phase-number">2</div>
+                        <div>
+                            <strong>Modelagem Conceitual</strong>
+                            <p>Desenvolvimento do modelo 3D com foco na expressividade artística</p>
+                        </div>
+                    </div>
+                    <div class="phase-step">
+                        <div class="phase-number">3</div>
+                        <div>
+                            <strong>Otimização Técnica</strong>
+                            <p>Processos de retopologia e preparação para animação</p>
+                        </div>
+                    </div>
+                    <div class="phase-step">
+                        <div class="phase-number">4</div>
+                        <div>
+                            <strong>Implementação</strong>
+                            <p>Integração no motor de jogo e desenvolvimento da demonstração</p>
+                        </div>
+                    </div>
+                    <div class="phase-step">
+                        <div class="phase-number">5</div>
+                        <div>
+                            <strong>Avaliação e Refinamento</strong>
+                            <p>Testes técnicos e ajustes baseados em feedback especializado</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fases-detalhadas">
+                <h2>Fases Detalhadas da Metodologia</h2>
+
+                <div class="methodology-section">
+                    <h3>Fase 1: Pesquisa e Definição Conceitual</h3>
+                    <p>Esta fase inicial concentrou-se na investigação sistemática de referências visuais, técnicas e culturais que fundamentaram o desenvolvimento conceitual do personagem. O processo incluiu análise crítica de jogos estabelecidos no gênero low poly, estudo de trabalhos de artistas especializados em modelagem 3D, e pesquisa sobre elementos culturais relacionados à temática tribal que inspirou a identidade visual do "Guardião do Totem". A definição de parâmetros estéticos e técnicos iniciais foi realizada através da criação de moodboards, estudos de silhueta e especificação de paleta de cores adequada ao estilo visual desejado e às restrições técnicas identificadas.</p>
+                </div>
+
+                <div class="methodology-section">
+                    <h3>Fase 2: Desenvolvimento do Modelo 3D no Blender</h3>
+                    <p>A fase de modelagem foi executada integralmente no software Blender, utilizando técnicas específicas para criação de personagens low poly. O processo iniciou com blocking básico para estabelecer proporções e silhueta, seguido por refinamentos progressivos que incorporaram detalhes visuais significativos enquanto mantinham controle sobre a contagem poligonal. A topologia foi planejada considerando requisitos futuros de animação, com atenção especial ao edge flow nas articulações principais para garantir deformações naturais durante movimentação. A abordagem adotada alternou entre modelagem orgânica para concepção artística e técnicas hard surface para definição de elementos estruturais, resultando em um modelo com aproximadamente 1.500 triângulos que equilibra detalhe visual e performance técnica.</p>
+                </div>
+
+                <div class="methodology-section">
+                    <h3>Fase 3: Otimização e Preparação Técnica</h3>
+                    <p>Esta fase dedicou-se à transformação do modelo conceitual em um asset tecnicamente otimizado para implementação em motor de jogo. Os processos executados incluíram retopologia para adequação da densidade da malha aos padrões da indústria para personagens low poly, preparação de layout UV para permitir aplicação eficiente de texturas, e organização da hierarquia de ossos para suportar sistemas de animação. A experiência revelou a importância crítica desta fase intermediária, que frequentemente é subestimada em contextos educacionais, mas que se mostrou essencial para a transição bem-sucedida entre modelo artístico e asset funcional.</p>
+                </div>
+
+                <div class="methodology-section">
+                    <h3>Fase 4: Implementação no Motor Unity</h3>
+                    <p>A implementação técnica foi realizada no motor Unity, focando na criação de uma demonstração interativa que validasse a funcionalidade do personagem desenvolvido. O processo incluiu exportação do modelo em formato FBX com preservação de transformações e hierarquias, configuração de materiais e shaders adequados ao estilo visual low poly, desenvolvimento de sistema básico de controle de movimento em terceira pessoa, e criação de ambiente desértico simplificado para contextualização da demonstração. A integração entre Blender e Unity foi otimizada através da definição de pipeline técnico que minimizou retrabalho e garantiu coerência visual entre as diferentes etapas de produção.</p>
+                </div>
+
+                <div class="methodology-section">
+                    <h3>Fase 5: Avaliação Técnica e Refinamento Iterativo</h3>
+                    <p>A fase final da metodologia concentrou-se na avaliação crítica dos resultados obtidos através de análise técnica especializada. O processo incluiu solicitação de feedback de profissional experiente em modelagem 3D, realização de testes de performance e usabilidade na demonstração desenvolvida, identificação sistemática de limitações técnicas e oportunidades de melhoria, e implementação de refinamentos baseados nas constatações da avaliação. Esta abordagem de validação externa demonstrou-se particularmente valiosa para identificar pontos cegos no processo de desenvolvimento e para estabelecer direcionamentos claros para melhorias específicas.</p>
+                </div>
+            </section>
+
+            <section id="ferramentas-tecnicas">
+                <h2>Ferramentas e Tecnologias Utilizadas</h2>
+                
+                <div class="tools-list">
+                    <div class="tool-card">
+                        <h4>Blender 3.0+</h4>
+                        <p>Software principal para modelagem 3D, texturização e rigging</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Unity 2022 LTS</h4>
+                        <p>Motor de jogo para implementação da demonstração técnica</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Visual Studio Code</h4>
+                        <p>Ambiente de desenvolvimento para scripting em C#</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>itch.io</h4>
+                        <p>hospedagem do projeto executavel</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Krita</h4>
+                        <p>Edição de texturas e elementos visuais</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resultados-aprendizados">
+                <h2>Resultados e Aprendizados Metodológicos</h2>
+                
+                <div class="methodology-section">
+                    <h3>Principais Resultados Obtidos</h3>
+                    <p>A aplicação da metodologia descrita resultou no desenvolvimento completo do personagem "Guardião do Totem", integrado em demonstração técnica funcional que valida suas capacidades de animação e movimentação em ambiente 3D. O processo gerou insights valiosos sobre a complexidade da integração entre ferramentas de criação de conteúdo e motores de jogo, evidenciando a importância de pipelines técnicos bem estruturados e da consideração antecipada de requisitos de performance em todas as fases do desenvolvimento.</p>
+                </div>
+
+                <div class="methodology-section">
+                    <h3>Lições Aprendidas e Recomendações</h3>
+                    <p>A experiência permitiu identificar a necessidade de maior integração entre considerações artísticas e técnicas desde as fases conceituais, a importância crítica da retopologia e preparação técnica de assets, e o valor do feedback especializado para identificação precoce de problemas técnicos. Como recomendações metodológicas para projetos futuros, sugere-se a adoção de processos iterativos mais estruturados, a definição clara de referências técnicas desde o início do desenvolvimento, e a implementação de práticas sistemáticas de documentação e validação contínua.</p>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <h2>Informações do Projeto</h2>
+            
+            <div class="methodology-section">
+                <h3>Características do Personagem</h3>
+                <ul>
+                    <li><strong>Estilo:</strong> Low Poly</li>
+                    <li><strong>Triângulos:</strong> ~1.500</li>
+                    <li><strong>Software:</strong> Blender 3.5</li>
+                    <li><strong>Engine:</strong> Unity 2022</li>
+                    <li><strong>Plataforma:</strong> PC Windows</li>
+                </ul>
+            </div>
+
+            <div class="methodology-section">
+                <h3>Público-Alvo da Metodologia</h3>
+                <ul>
+                    <li>Estudantes de Jogos Digitais</li>
+                    <li>Desenvolvedores Independentes</li>
+                    <li>Artistas 3D Iniciantes</li>
+                    <li>Professores da Área</li>
+                    <li>Pesquisadores em Game Development</li>
+                </ul>
+            </div>
+
+            <div class="methodology-section">
+                <h3>Palavras-Chave</h3>
+                <p style="line-height: 1.8;">
+                    <span style="background: #e3f2fd; padding: 2px 6px; border-radius: 3px; margin: 2px; display: inline-block;">Modelagem 3D</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border-radius: 3px; margin: 2px; display: inline-block;">Low Poly</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border-radius: 3px; margin: 2px; display: inline-block;">Blender</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border-radius: 3px; margin: 2px; display: inline-block;">Unity</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border-radius: 3px; margin: 2px; display: inline-block;">Pipeline de Desenvolvimento</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border-radius: 3px; margin: 2px; display: inline-block;">Otimização de Malha</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border-radius: 3px; margin: 2px; display: inline-block;">Personagens para Jogos</span>
+                </p>
+            </div>
+
+            <div class="methodology-section">
+                <h3>Contato</h3>
+                <ul>
+                    <li><strong>Autor:</strong> Cintia Maier dos Santos</li>
+                    <li><strong>Instituição:</strong> UNISINOS</li>
+                    <li><strong>Curso:</strong> Jogos Digitais</li>
+                    <li><strong>Email:</strong> cintia.maier@yahoo.com.br</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>© 2025 Cintia Maier dos Santos - Trabalho de Conclusão de Curso em Jogos Digitais - UNISINOS</p>
+        <p>Esta página foi desenvolvida para socialização da metodologia aplicada no projeto "Lost Totem"</p>
+        <p style="margin-top: 1rem; font-size: 0.9em; color: #888;">
+        </p>
+    </footer>
+
+    <script>
+        // Atualiza a data atual
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR');
+        
+        // Adiciona interação básica
+        document.addEventListener('DOMContentLoaded', function() {
+            const methodologySections = document.querySelectorAll('.methodology-section');
+            methodologySections.forEach(section => {
+                section.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.01)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
